@@ -15,21 +15,22 @@ namespace ProjectTestingPhase.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
-        public DbSet<Bills> Bills{ get; set; }
+        public DbSet<Bills> Bills { get; set; }
         public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Car> Cars{ get; set; }
-        public DbSet<Chat> Chats{ get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Chat> Chats { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Driver> Driver{ get; set; }
-        public DbSet<Feedback> Feedbacks{ get; set; }
+        public DbSet<Driver> Driver { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Feedback>()
-                .HasOne(f => f.Driver)
-                .WithMany()
-                .HasForeignKey(f => f.DriverId)
-                .OnDelete(DeleteBehavior.Restrict);
-        }
+            base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Feedback>()
+            .HasOne(f => f.Driver)
+            .WithMany()
+            .HasForeignKey(f => f.DriverId)
+            .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

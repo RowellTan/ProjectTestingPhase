@@ -11,8 +11,8 @@ namespace ProjectTestingPhase.Shared.Domain
         public int PhoneNo { get; set; }
         public string? CarType { get; set; }
         public virtual Driver? Driver { get; set; }
-        public virtual Booking? Booking { get; set; }
         public int DriverId { get; set; }
+        public virtual Booking? Booking { get; set; }
         public int BookingId { get; set; }
     }
 }

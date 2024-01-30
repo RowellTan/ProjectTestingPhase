@@ -8,10 +8,8 @@ namespace ProjectTestingPhase.Shared.Domain
 {
     public class CarStatus : BaseDomainModel
     {
-        public string? Status { get; set; }
-
-        public int CarId { get; set; }  // Assuming CarId is an integer
-
         public virtual Car? Car { get; set; }
+        public string? CarId { get; set; }
+        public string? Status { get; set; }
     }
 }

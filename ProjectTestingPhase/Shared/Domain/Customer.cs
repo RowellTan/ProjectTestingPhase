@@ -8,8 +8,8 @@ namespace ProjectTestingPhase.Shared.Domain
 {
     public class Customer : BaseDomainModel
     {
+        public int Name { get; set; }
         public int PhoneNo { get; set; }
-        public string? Name { get; set; }
         public string? Destination { get; set; }
     }
 }

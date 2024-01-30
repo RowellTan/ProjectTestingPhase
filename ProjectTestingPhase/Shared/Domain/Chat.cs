@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProjectTestingPhase.Shared.Domain
 {
-    public class CarStatus : BaseDomainModel
+    public class Chat : BaseDomainModel
     {
-        public virtual Car? Car { get; set; }
-        public string? CarId { get; set; }
-        public string? Status { get; set; }
+
+        public string? Message { get; set; }
+        public string? Sender { get; set; }
+        public string? Reciever { get; set; }
     }
 }

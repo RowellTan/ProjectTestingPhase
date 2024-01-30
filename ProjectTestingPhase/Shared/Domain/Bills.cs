@@ -9,9 +9,8 @@ namespace ProjectTestingPhase.Shared.Domain
     public class Bills : BaseDomainModel
     {
         public double Distance { get; set; }
-        public DateTime TravelTime { get; set; }
         public double Amount { get; set; }
-        public virtual Customer? Customer { get; set; }
-        public int CustomerId { get; set; }
+        public virtual Booking? Booking { get; set; }
+        public int BookingId { get; set; }
     }
 }

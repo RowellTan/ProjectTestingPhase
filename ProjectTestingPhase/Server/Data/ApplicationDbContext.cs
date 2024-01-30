@@ -18,12 +18,18 @@ namespace ProjectTestingPhase.Server.Data
         public DbSet<Bills> Bills{ get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Car> Cars{ get; set; }
-        public DbSet<CarStatus> CarStatuses{ get; set; }
+        public DbSet<Chat> Chats{ get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Driver> Driver{ get; set; }
         public DbSet<Feedback> Feedbacks{ get; set; }
-        public DbSet<IncidentReport> IncidentReports{ get; set; }
-        public DbSet<UserRating> UserRatings{ get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Feedback>()
+                .HasOne(f => f.Driver)
+                .WithMany()
+                .HasForeignKey(f => f.DriverId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
 
     }
 }
